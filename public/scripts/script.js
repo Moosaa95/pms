@@ -15,7 +15,7 @@ $(document).ready(function () {
 
     console.log(formData, "formdata");
     $.ajax({
-      url: "http://localhost:8000/api/projects",
+      url: "https://abzmoosa.pythonanywhere.com/api/projects",
       type: "POST",
       data: formData,
       processData: false,
@@ -65,7 +65,7 @@ $(document).ready(function () {
 
   function getProject() {
     $.ajax({
-      url: "http://localhost:8000/api/projects",
+      url: "https://abzmoosa.pythonanywhere.com/api/projects",
       type: "GET",
       success: function (response) {
         $(".table-card-body").empty();
@@ -167,7 +167,7 @@ $(document).ready(function () {
     console.log("filters", filters);
 
     $.ajax({
-      url: "http://localhost:8000/api/filter",
+      url: "https://abzmoosa.pythonanywhere.com/api/filter",
       type: "POST",
       data: { filters: JSON.stringify(filters) },
       success: function (response) {
