@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Project</title>
+    <!-- class="flex justify-between m-4 flex-col sticky top-0 left-0 bottom-0 h-[100vh] w-[55px] text-black overflow-hidden transition-all duration-500 ease-linear hover:w-[240px] duration-500" -->
+  </head>
+  <body class="overflow-hidden">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 auto-rows-[10vh] gap-2.5 p-4"
+    >
+      <div class="col-span-1 md:col-span-1"></div>
+      <div class="col-span-6 md:col-span-6">
+        <div
+          class="flex w-[100%] justify-between items-center py-4 px-6 rounded-lg"
+        >
+          <div class="flex items-center">
+            <i class="fas fa-bars mr-2 cursor-pointer"></i>
+            <h1 class="text-lg font-semibold">My Projects</h1>
+          </div>
+          <div class="flex items-center p-1 w-[70%]">
+            <div
+              class="flex items-center border rounded-full py-4 px-6 w-[100%] shadow-md"
+            >
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search projects, tasks, etc..."
+                class="flex-1 px-4 py-1 flex-1 bg-transparent rounded-md outline-none focus:none"
+              />
+              <button class="ml-2 focus:outline-none" id="searchBtn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <div class="relative ml-2">
+              <button id="filterStatusBtn" class="focus:outline-none">
+                <i class="fas fa-filter"></i>
+              </button>
+              <div
+                id="filterStatusDropdown"
+                class="absolute z-10 hidden bg-white rounded-md shadow-md mt-2"
+              >
+                <select
+                  id="filterStatus"
+                  class="px-3 py-1 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Status</option>
+                  <option value="TODO">To Do</option>
+                  <option value="PROGRESS">In Progress</option>
+                  <option value="DONE">Done</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="bg-[#eeebfe] p-8 cursor-pointer">
+            <a
+              class="text-white rounded-lg shadow-md hover:bg-[#eeebfe] focus:outline-none"
+              id="showCreateProjectModal"
+            >
+              <i class="fas fa-plus-circle fa-2x mr-1 text-black"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 auto-rows-[100vh] gap-2.5 p-4"
+    >
+      <div class="col-span-1 md:col-span-1">
+        <aside class="overflow-hidden transition-all duration-500 ease-linear">
+          <nav>
+            <div>
+              <h3 class="text-lg font-semibold px-4 mt-4 mb-2">Home</h3>
+              <ul class="h-[88%] relative list-none p-0">
+                <li
+                  class="p-4 my-2 rounded-lg transition-all duration-500 ease-in-out hover:bg-[#eeebfe]"
+                >
+                  <a
+                    href="#"
+                    class="text-base no-underline flex items-center gap-6"
+                  >
+                    <i class="fas fa-briefcase text-[14px]"></i>
+                    <span class="overflow-hidden">Projects</span>
+                  </a>
+                </li>
+                <li
+                  class="p-4 my-2 rounded-lg transition-all duration-500 ease-in-out hover:bg-[#eeebfe]"
+                >
+                  <a
+                    href="#"
+                    class="text-base no-underline flex items-center gap-6"
+                  >
+                    <i class="fas fa-list"></i>
+                    <span>My Task</span>
+                  </a>
+                </li>
+                <li
+                  class="p-4 my-2 rounded-lg transition-all duration-500 ease-in-out hover:bg-[#eeebfe]"
+                >
+                  <a
+                    href="#"
+                    class="text-base no-underline flex items-center gap-6"
+                  >
+                    <i class="fas fa-users"></i>
+                    <span>Team</span></a
+                  >
+                </li>
+                <li
+                  class="p-4 my-2 rounded-lg transition-all duration-500 ease-in-out hover:bg-[#eeebfe]"
+                >
+                  <a
+                    href="#"
+                    class="text-base no-underline flex items-center gap-6"
+                  >
+                    <i class="fas fa-file"></i>
+                    <span>File</span>
+                  </a>
+                </li>
+                <li
+                  class="p-4 my-2 rounded-lg transition-all duration-500 ease-in-out hover:bg-[#eeebfe]"
+                >
+                  <a
+                    href="#"
+                    class="text-base no-underline flex items-center gap-6"
+                    ><i class="fas fa-calendar"></i><span>Calendar</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold px-4 mt-4 mb-2">Insights</h3>
+              <ul class="px-4">
+                <li
+                  class="p-4 my-2 rounded-lg transition-all duration-500 ease-in-out hover:bg-[#eeebfe]"
+                >
+                  <a
+                    href="#"
+                    class="text-base no-underline flex items-center gap-6"
+                  >
+                    <i class="fas fa-envelope"></i>
+                    <span>Inbox</span>
+                    <div
+                      class="bg-[#ffc9c6] border border-[#ffc9c6] text-[#ffc9c6] rounded-full px-4 py-2"
+                    >
+                      <span>18</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class="absolute bottom-0">
+            <ul class="flex gap-4 items-center">
+              <div>
+                <img
+                  class="rounded-full w-16 h-16"
+                  src="https://images.unsplash.com/photo-1610805796066-66f6052e1db2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZhY2VsZXNzfGVufDB8fDB8fHww"
+                  alt=""
+                />
+              </div>
+              <li
+                class="p-4 my-2 rounded-lg transition-all duration-500 ease-in-out hover:bg-[#eeebfe]"
+              >
+                <a
+                  href="#"
+                  class="text-base no-underline flex items-center gap-6"
+                >
+                  <span>Profile</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+      <div class="col-span-4 md:col-span-4 overflow-y-auto max-h-80 mb-4">
+        <div class="w-[100%]">
+          <div class="flex justify-between items-center mt-[30px]">
+            <div class="flex gap-4 mb-2">
+              <div
+                class="flex border border-gray-300 hover:border-gray-500 hover:shadow-md w-44 h-16 cursor-pointer items-center justify-center rounded-md bg-white transition duration-300 ease-in-out transform hover:scale-105"
+              >
+                <i class="fas fa-list text-2xl mr-2"></i>
+                <span class="text-lg font-semibold">List</span>
+              </div>
+              <div
+                class="flex border border-gray-300 hover:border-gray-500 hover:shadow-md w-44 h-16 cursor-pointer items-center justify-center rounded-md bg-white transition duration-300 ease-in-out transform hover:scale-105"
+              >
+                <i class="fas fa-list text-2xl mr-2"></i>
+                <span class="text-lg font-semibold">Board</span>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span>Show</span>
+              <div
+                class="flex items-center border-[2px] border-black rounded-md w-[90px] justify-center bg-transparent"
+              >
+                <select class="bg-transparent">
+                  <option value="">All</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <span id="searchLength"></span>
+
+          <!-- table  -->
+          <div class="">
+            <!-- table card header -->
+            <div
+              class="flex justify-around mb-8 items-center border-[2px] shadow-md rounded-lg p-4"
+            >
+              <span>Task name</span>
+              <div class="flex gap-[140px]">
+                <span>Due in</span>
+                <span>Tasks</span>
+                <span>Status</span>
+                <span>Members</span>
+              </div>
+            </div>
+            <!-- table card body -->
+            <div class="table-card-body"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-2 md:col-span-2">
+        <div class="flex justify-between px-4 mb-4">
+          <h2 class="font-bold">Upcoming meeting</h2>
+          <span class="text-blue-500">See all</span>
+        </div>
+        <!-- meeting name -->
+        <div
+          class="border-[2px] shadow-md border-green bg-green-100 m-4 rounded-lg p-4"
+        >
+          <div>
+            <h2 class="font-bold text-2xl">Meeting Name</h2>
+            <span
+              >the meeting aims to identify areas for improvement and ensure the
+              design aligns with user needs and business goals</span
+            >
+          </div>
+          <div class="border-white bg-white flex flex-col justify-center p-4">
+            <!-- time duration -->
+            <div class="flex justify-between px-4 mb-4">
+              <div class="flex flex-col">
+                <span class="text-gray-500">Time</span>
+                <span class="font-bold">12:00-12-30</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-gray-500">Duration</span>
+                <span class="font-bold">30mins</span>
+              </div>
+            </div>
+            <!-- members -->
+            <div class="px-4">
+              <span class="text-gray-500">invited members</span>
+              <div class="flex flex-row">
+                <!-- images -->
+                <img
+                  class="rounded-full w-16 h-16"
+                  src="https://images.unsplash.com/photo-1610805796066-66f6052e1db2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZhY2VsZXNzfGVufDB8fDB8fHww"
+                  alt=""
+                />
+                <img
+                  class="rounded-full w-16 h-16"
+                  src="https://images.unsplash.com/photo-1610805796066-66f6052e1db2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZhY2VsZXNzfGVufDB8fDB8fHww"
+                  alt=""
+                />
+                <img
+                  class="rounded-full w-16 h-16"
+                  src="https://images.unsplash.com/photo-1610805796066-66f6052e1db2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZhY2VsZXNzfGVufDB8fDB8fHww"
+                  alt=""
+                />
+              </div>
+            </div>
+            <button class="bg-blue-600 text-white py-4 rounded-lg m-4">
+              Join Meeting
+            </button>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between px-4 mb-4">
+            <h2 class="font-bold">Upcoming Task</h2>
+          </div>
+          <div class="border-[2px] shadow-md rounded-lg p-4 m-4">
+            <div class="flex justify-between items-center p-2">
+              <!-- header -->
+              <span>Product Planning</span>
+              <div class="flex justify-between items-center">
+                <span class="bg-[#f7d96d] text-[#f7d96d]">Urgent</span>
+                <div class="flex flex-col">
+                  <i class="fas fa-dot"></i>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-between">
+              <div class="flex flex-col justify-center">
+                <div class="flex mb-4">
+                  <img
+                    class="rounded-full w-16 h-16"
+                    src="https://images.unsplash.com/photo-1610805796066-66f6052e1db2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZhY2VsZXNzfGVufDB8fDB8fHww"
+                    alt="1"
+                  />
+                  <img
+                    class="rounded-full w-16 h-16"
+                    src="https://images.unsplash.com/photo-1610805796066-66f6052e1db2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZhY2VsZXNzfGVufDB8fDB8fHww"
+                    alt="1"
+                  />
+                  <img
+                    class="rounded-full w-16 h-16"
+                    src="https://images.unsplash.com/photo-1610805796066-66f6052e1db2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZhY2VsZXNzfGVufDB8fDB8fHww"
+                    alt="1"
+                  />
+                </div>
+
+                <div class="flex flex-col items-center">
+                  <div
+                    class="relative w-full h-2 rounded-full overflow-hidden bg-gray-300"
+                  >
+                    <div
+                      id="progressBar"
+                      class="absolute top-0 left-0 h-full bg-[#f7d96d]"
+                      style="
+                        width: 50%;
+                        transition: width 0.3s ease;
+                        background-color: #f7d96d;
+                      "
+                    ></div>
+                  </div>
+                </div>
+                <span>Management</span>
+              </div>
+              <div class="mb-4">
+                <i class="fas fa-clock"></i>
+                <span>10:00-11:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Project Modal -->
+    <div
+      id="addProjectModal"
+      class="fixed top-50 left-50 right-50 bottom-50 inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+      style="display: none"
+    >
+      <div class="bg-white rounded-lg p-8 max-w-md w-full">
+        <div class="flex justify-between items-center">
+          <h2 class="text-xl font-bold mb-4">Add Project</h2>
+          <button
+            id="closeModalBtn"
+            class="text-gray-500 hover:text-gray-700 focus:outline-none closeModalBtn"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <form id="addProjectForm" class="space-y-4">
+          <div>
+            <label
+              for="projectName"
+              class="block text-sm font-medium text-gray-700"
+              >Project Name</label
+            >
+            <input
+              type="text"
+              id="projectName"
+              name="name"
+              class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+              required
+            />
+          </div>
+          <div>
+            <label for="dueDate" class="block text-sm font-medium text-gray-700"
+              >Due Date</label
+            >
+            <input
+              type="date"
+              id="dueDate"
+              name="due_date"
+              class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+              required
+            />
+          </div>
+          <div>
+            <label
+              for="progress"
+              class="block text-sm font-medium text-gray-700"
+              >Progress</label
+            >
+            <input
+              type="number"
+              id="progress"
+              name="progress"
+              class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+              min="0"
+              max="100"
+              required
+            />
+          </div>
+          <div>
+            <label for="status" class="block text-sm font-medium text-gray-700"
+              >Status</label
+            >
+            <select
+              id="status"
+              name="status"
+              class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+              required
+            >
+              <option value="TODO">To Do</option>
+              <option value="PROGRESS">Progress</option>
+              <option value="DONE">Done</option>
+            </select>
+          </div>
+          <div class="flex justify-end">
+            <button
+              type="submit"
+              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              Add Project
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div
+      id="editDeleteModal"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden"
+    >
+      <div class="bg-white rounded-lg p-8 max-w-md w-full">
+        <div class="flex justify-between items-center">
+          <h2 class="text-xl font-bold mb-4">Options</h2>
+          <button
+            id="closeModalBtn"
+            class="text-gray-500 hover:text-gray-700 focus:outline-none closeModalBtn"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="flex justify-between flex-col">
+          <!-- Edit Button -->
+          <button
+            id="editBtn"
+            class="py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 mr-4 mb-2"
+          >
+            Edit
+          </button>
+          <!-- Delete Button -->
+          <button
+            id="deleteBtn"
+            class="py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[red] hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="loader"
+      class="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50 hidden"
+    >
+      <div
+        class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"
+      ></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../scripts/script.js"></script>
+  </body>
+</html>
